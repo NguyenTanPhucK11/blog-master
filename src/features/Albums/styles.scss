@@ -1,4 +1,15 @@
 .vertical {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  overflow: scroll;
+  height: 400px;
+}
+
+.horizontal {
   display: flex;
   flex-direction: row;
+  padding: 32px;
+  overflow: scroll;
 }

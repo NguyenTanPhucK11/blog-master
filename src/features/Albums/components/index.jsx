@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Col, Image } from 'react-bootstrap';
 import './styles.scss';
+import { useSelector } from 'react-redux';
 
 Album.propTypes = {};
 
 function Album({ id, title, photoOnClick }) {
+  const initPhoto = useSelector((state) => state.photo);
+  const [photo, setPhoto] = useState(initPhoto);
+
   const handleOnClickImg = (id) => {
     if (!photoOnClick) return;
     photoOnClick(id);
   };
-  const photoUrl = 'https://via.placeholder.com/150/24f355';
+
   return (
     <Container className="album-vertical">
       <Col>
         <Image
-          src={photoUrl}
+          src={photo[id].url}
           onClick={() => handleOnClickImg(id)}
           width={150}
           height={150}
