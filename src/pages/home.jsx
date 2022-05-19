@@ -16,9 +16,7 @@ function HomePage(props) {
     <div className="blog">
       <Row>
         <Col xs={8}>
-          <PostFeature id={id} />
           <AlbumFeature vertical={false} onClickPhoto={handleOnClickPhoto} />
-          <CommentFeature id={id} />
         </Col>
         <Col xs={4}>
           <AlbumFeature vertical={true} onClickPhoto={handleOnClickPhoto} />
