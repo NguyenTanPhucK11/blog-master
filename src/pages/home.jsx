@@ -7,19 +7,15 @@ import CommentFeature from '../features/Comments';
 
 HomePage.propTypes = {};
 
-function HomePage(props) {
-  const [id, setId] = useState(0);
-  const handleOnClickPhoto = (id) => {
-    setId(id);
-  };
+function HomePage() {
   return (
     <div className="blog">
       <Row>
         <Col xs={8}>
-          <AlbumFeature vertical={false} onClickPhoto={handleOnClickPhoto} />
+          <AlbumFeature vertical={false} />
         </Col>
         <Col xs={4}>
-          <AlbumFeature vertical={true} onClickPhoto={handleOnClickPhoto} />
+          <AlbumFeature vertical={true} />
         </Col>
       </Row>
     </div>

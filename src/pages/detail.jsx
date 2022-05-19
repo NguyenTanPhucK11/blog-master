@@ -6,12 +6,12 @@ import CommentFeature from '../features/Comments';
 
 DetailPage.propTypes = {};
 
-function DetailPage(props) {
-  const id = 1;
+function DetailPage() {
+
   return (
     <div>
-      <PostFeature id={id} />
-      <CommentFeature id={id} />
+      <PostFeature  />
+      <CommentFeature  />
     </div>
   );
 }

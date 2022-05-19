@@ -4,28 +4,14 @@ import { Container, Col, Image } from 'react-bootstrap';
 import './styles.scss';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Photo from '../../Photos/components';
 Album.propTypes = {};
 
-function Album({ id, title, photoOnClick }) {
-  const initPhoto = useSelector((state) => state.photo);
-  const [photo, setPhoto] = useState(initPhoto);
-
-  const handleOnClickImg = (id) => {
-    if (!photoOnClick) return;
-    photoOnClick(id);
-  };
-
+function Album({ id, title }) {
   return (
     <Container className="album-vertical">
       <Col>
-        <NavLink to="/detail">
-          <Image
-            src={photo[id].url}
-            onClick={() => handleOnClickImg(id)}
-            width={150}
-            height={150}
-          />
-        </NavLink>
+        <Photo idImg={id} width={150} height={150} />
       </Col>
       <Col>{title}</Col>
     </Container>

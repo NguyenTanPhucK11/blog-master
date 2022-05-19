@@ -8,13 +8,10 @@ import className from 'classes';
 
 AlbumFeature.propTypes = {};
 
-function AlbumFeature({ onClickPhoto, vertical }) {
+function AlbumFeature({ vertical }) {
   const initAlbumList = useSelector((state) => state.album);
   const [albumList, setAlbumList] = useState(initAlbumList);
-  const handlePhotoOnClick = (id) => {
-    if (!onClickPhoto) return;
-    onClickPhoto(id);
-  };
+
   useEffect(() => {
     async function fetchAlbumList() {
       const request = 'https://jsonplaceholder.typicode.com/albums';
@@ -38,7 +35,7 @@ function AlbumFeature({ onClickPhoto, vertical }) {
           <Album
             key={'album-' + album.id}
             {...album}
-            photoOnClick={handlePhotoOnClick}
+          
           />
         ))}
       </ul>
