@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import DetailPage from './pages/detail';
 import HomePage from './pages/home';
+import LoginPage from './pages/login';
 
 function App() {
   const [id, setId] = useState(0);
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
       </PostIdContext.Provider>

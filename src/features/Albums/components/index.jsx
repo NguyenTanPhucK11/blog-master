@@ -11,7 +11,7 @@ function Album({ id, title }) {
   return (
     <Container className="album-vertical">
       <Col>
-        <Photo idImg={id} width={150} height={150} />
+        <Photo clickPhoto={true} idImg={id} width={150} height={150} />
       </Col>
       <Col>{title}</Col>
     </Container>

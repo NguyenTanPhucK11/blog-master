@@ -6,3 +6,18 @@
     padding: 0px 0px 0px 60px;
   }
 }
+
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout {
+  //   display: flex;
+  //   flex-direction: row;
+  padding: 16px;
+  float: right;
+}

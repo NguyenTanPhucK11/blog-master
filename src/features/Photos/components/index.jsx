@@ -6,15 +6,15 @@ import { useSelector } from 'react-redux';
 import { PostIdContext } from '../../../App';
 Photo.propTypes = {};
 
-function Photo({ idImg, width, height }) {
+function Photo({ clickPhoto, idImg, width, height }) {
   const initPhoto = useSelector((state) => state.photo);
   const { id, setId } = useContext(PostIdContext);
   const handleOnClickImg = (id) => {
     setId(id);
   };
 
-  return (
-    <NavLink to="/detail">
+  return clickPhoto ? (
+    <NavLink to="/login">
       <Image
         src={initPhoto[idImg].url}
         onClick={() => handleOnClickImg(idImg)}
@@ -22,6 +22,8 @@ function Photo({ idImg, width, height }) {
         height={height}
       />
     </NavLink>
+  ) : (
+    <Image src={initPhoto[idImg].url} width={width} height={height} />
   );
 }
 

@@ -11,7 +11,7 @@ function Post({ id, body, title }) {
       <Container className="post">
         <Row className="d-flex justify-content-center">
           <h2>{title}</h2>
-          <Photo idImg={id} width={800} height={400} />
+          <Photo clickPhoto={false} idImg={id} width={800} height={400} />
           <h4>{body}</h4>
         </Row>
       </Container>
