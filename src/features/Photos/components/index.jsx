@@ -14,10 +14,9 @@ function Photo({ user, clickPhoto, idImg, width, height }) {
   const navigate = useNavigate();
   const handleOnClickImg = (id) => {
     setId(id);
-    console.log(user.email);
     if (!clickPhoto) return;
-    // else if (user.email !== undefined) navigate('/detail');
-    // else navigate('/login');
+    else if (user?.email !== undefined) navigate('/detail');
+    else navigate('/login');
   };
 
   return (

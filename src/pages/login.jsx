@@ -22,9 +22,9 @@ function LoginPage(props) {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
-  //   onAuthStateChanged(auth, (currentUser) => {
-  //     currentUser !== null && navigate('/detail');
-  //   });
+  onAuthStateChanged(auth, (currentUser) => {
+    currentUser !== null && navigate('/detail');
+  });
 
   const register = async () => {
     try {
