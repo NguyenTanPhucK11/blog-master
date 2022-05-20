@@ -81,12 +81,12 @@ function LoginPage(props) {
                 onChange={(e) => setLoginPassword(e.target.value)}
               ></Form.Control>
             </InputGroup>
-            <NavLink to="/detail">
+            <NavLink to={user.email !== undefined && '/detail'}>
               <Button
                 variant="primary"
                 type="submit"
                 onClick={(e) => {
-                //   e.preventDefault();
+                  //   e.preventDefault();
                   login();
                 }}
               >

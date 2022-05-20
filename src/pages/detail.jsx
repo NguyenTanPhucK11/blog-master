@@ -13,7 +13,6 @@ function DetailPage() {
   onAuthStateChanged(auth, (currentUser) => {
     currentUser !== null && setUser(currentUser);
   });
-  console.log(user.email);
   const logout = () => {};
   return (
     <div>
