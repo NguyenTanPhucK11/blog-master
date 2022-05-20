@@ -1,9 +1,9 @@
-import { onAuthStateChanged } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import CommentFeature from '../features/Comments';
 import PostFeature from '../features/Posts';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase-config';
 import './styles.scss';
 DetailPage.propTypes = {};
@@ -13,7 +13,9 @@ function DetailPage() {
   onAuthStateChanged(auth, (currentUser) => {
     currentUser !== null && setUser(currentUser);
   });
-  const logout = () => {};
+  const logout = async () => {
+    await signOut(auth);
+  };
   return (
     <div>
       <Row className="logout">

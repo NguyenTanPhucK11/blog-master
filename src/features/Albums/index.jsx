@@ -8,7 +8,7 @@ import className from 'classes';
 
 AlbumFeature.propTypes = {};
 
-function AlbumFeature({ vertical }) {
+function AlbumFeature({ user, vertical }) {
   const initAlbumList = useSelector((state) => state.album);
   const [albumList, setAlbumList] = useState(initAlbumList);
 
@@ -32,11 +32,7 @@ function AlbumFeature({ vertical }) {
       <h2>CATEGORY </h2>
       <ul className={vertical ? 'vertical' : 'horizontal'}>
         {albumCategory.map((album) => (
-          <Album
-            key={'album-' + album.id}
-            {...album}
-          
-          />
+          <Album user={user} key={'album-' + album.id} {...album} />
         ))}
       </ul>
     </>

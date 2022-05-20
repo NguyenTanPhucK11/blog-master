@@ -7,11 +7,17 @@ import { NavLink } from 'react-router-dom';
 import Photo from '../../Photos/components';
 Album.propTypes = {};
 
-function Album({ id, title }) {
+function Album({user, id, title }) {
   return (
     <Container className="album-vertical">
       <Col>
-        <Photo clickPhoto={true} idImg={id} width={150} height={150} />
+        <Photo
+          user={user}
+          clickPhoto={true}
+          idImg={id}
+          width={150}
+          height={150}
+        />
       </Col>
       <Col>{title}</Col>
     </Container>
