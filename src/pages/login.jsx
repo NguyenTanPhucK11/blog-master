@@ -15,10 +15,8 @@ LoginPage.propTypes = {};
 
 function LoginPage(props) {
   const [isLogin, setIsLogin] = useState(true);
-  const [registerEmail, setRegisterEmail] = useState('');
-  const [registerPassword, setRegisterPassword] = useState('');
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
@@ -30,8 +28,8 @@ function LoginPage(props) {
     try {
       const user = await createUserWithEmailAndPassword(
         auth,
-        registerEmail,
-        registerPassword
+        userId,
+        userPassword
       );
       setUser(user);
     } catch (error) {
@@ -41,11 +39,7 @@ function LoginPage(props) {
 
   const login = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
+      const user = await signInWithEmailAndPassword(auth, userId, userPassword);
       setUser(user);
     } catch (error) {
       console.log(error.message);
@@ -54,86 +48,70 @@ function LoginPage(props) {
   return (
     <div className="login">
       <Col xs={2}>
-        {isLogin ? (
-          <Form>
+        <Form>
+          <Form.Group>
             <InputGroup className="mb-3">
               <InputGroup.Text>
                 <Person></Person>
               </InputGroup.Text>
               <Form.Control
                 type="email"
-                onChange={(e) => setLoginEmail(e.target.value)}
+                onChange={(e) => setUserId(e.target.value)}
               ></Form.Control>
             </InputGroup>
+          </Form.Group>
+          <Form.Group>
             <InputGroup className="mb-3">
               <InputGroup.Text>
                 <Lock></Lock>
               </InputGroup.Text>
               <Form.Control
                 type="password"
-                onChange={(e) => setLoginPassword(e.target.value)}
+                onChange={(e) => setUserPassword(e.target.value)}
               ></Form.Control>
             </InputGroup>
-            <NavLink to={user.email !== undefined && '/detail'}></NavLink>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                login();
-              }}
-            >
-              Login
-            </Button>
-            <p
-              style={{ textDecoration: 'underline' }}
-              onClick={() => setIsLogin(false)}
-            >
-              I don't have account
-            </p>
-          </Form>
-        ) : (
-          <Form>
-            <Form.Group>
-              <InputGroup className="mb-3">
-                <InputGroup.Text>
-                  <Person></Person>
-                </InputGroup.Text>
-                <Form.Control
-                  type="email"
-                  onChange={(e) => setRegisterEmail(e.target.value)}
-                ></Form.Control>
-              </InputGroup>
-            </Form.Group>
-            <Form.Group>
-              <InputGroup className="mb-3">
-                <InputGroup.Text>
-                  <Lock></Lock>
-                </InputGroup.Text>
-                <Form.Control
-                  type="password"
-                  onChange={(e) => setRegisterPassword(e.target.value)}
-                ></Form.Control>
-              </InputGroup>
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                register();
-              }}
-            >
-              Create Account
-            </Button>
-            <p
-              style={{ textDecoration: 'underline' }}
-              onClick={() => setIsLogin(true)}
-            >
-              I already have account
-            </p>
-          </Form>
-        )}
+          </Form.Group>
+          {isLogin ? (
+            <>
+              <NavLink to={user.email !== undefined && '/detail'}></NavLink>
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  login();
+                }}
+              >
+                Login
+              </Button>
+              <p
+                style={{ textDecoration: 'underline' }}
+                onClick={() => setIsLogin(false)}
+              >
+                I don't have account
+              </p>
+            </>
+          ) : (
+            <>
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  register();
+                }}
+              >
+                Create Account
+              </Button>
+              <p
+                style={{ textDecoration: 'underline' }}
+                onClick={() => setIsLogin(true)}
+              >
+                I already have account
+              </p>
+            </>
+          )}
+        </Form>
       </Col>
     </div>
   );
