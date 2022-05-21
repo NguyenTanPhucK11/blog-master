@@ -7,6 +7,7 @@ import DetailPage from './pages/detail';
 import HomePage from './pages/home';
 import LayoutPage from './pages/layout';
 import LoginPage from './pages/login';
+import Footer from './pages/footer';
 function App() {
   const [id, setId] = useState(0);
   const [user, setUser] = useState({});
@@ -26,6 +27,7 @@ function App() {
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
       </PostIdContext.Provider>
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Container, Image, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Photo from '../../Photos/components';
 
 Post.propTypes = {};

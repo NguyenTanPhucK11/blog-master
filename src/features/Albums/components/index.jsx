@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Container, Col, Image } from 'react-bootstrap';
-import './styles.scss';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { Col, Container } from 'react-bootstrap';
 import Photo from '../../Photos/components';
+import './styles.scss';
 Album.propTypes = {};
 
-function Album({user, id, title }) {
+function Album({ user, id, title }) {
   return (
     <Container className="album-vertical">
       <Col>
@@ -15,8 +12,8 @@ function Album({user, id, title }) {
           user={user}
           clickPhoto={true}
           idImg={id}
-          width={150}
-          height={150}
+          width={365}
+          height={600}
         />
       </Col>
       <Col>{title}</Col>

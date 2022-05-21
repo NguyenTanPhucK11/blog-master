@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import Comment from './components';
 import { useSelector } from 'react-redux';
+import Comment from './components';
 
 CommentFeature.propTypes = {};
 

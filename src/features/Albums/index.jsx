@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Album from './components';
 import './styles.scss';
-import { fetchAlbumList } from '../../api/albumAPI';
-import className from 'classes';
+import { TabScrollButton } from '@mui/material';
 
 AlbumFeature.propTypes = {};
 
@@ -30,7 +28,7 @@ function AlbumFeature({ user, vertical }) {
   return (
     <>
       <h2>CATEGORY </h2>
-      <ul className={vertical ? 'vertical' : 'horizontal'}>
+      <ul className={vertical ? 'vertical ' : 'horizontal'}>
         {albumCategory.map((album) => (
           <Album user={user} key={'album-' + album.id} {...album} />
         ))}

@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-import Post from './components';
-import { useDispatch, useSelector } from 'react-redux';
-import { addPostList } from '../../reducers/postSlice';
+import React, { useContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PostIdContext } from '../../App';
+import Post from './components';
 import './styles.scss';
 
 PostFeature.propTypes = {};

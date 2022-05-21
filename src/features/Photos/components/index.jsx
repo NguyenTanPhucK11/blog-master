@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { PostIdContext } from '../../../App';
-import { auth } from '../../../firebase/firebase-config';
-import { onAuthStateChanged } from 'firebase/auth';
 Photo.propTypes = {};
 
 function Photo({ user, clickPhoto, idImg, width, height }) {

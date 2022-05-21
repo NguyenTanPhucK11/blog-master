@@ -4,17 +4,16 @@ import AlbumFeature from '../features/Albums';
 import './styles.scss';
 HomePage.propTypes = {};
 
-function HomePage({user}) {
-
+function HomePage({ user }) {
   return (
     <div className="blog">
-      <Row>
-        <Col xs={8}>
+      <Row className="d-flex justify-content-center">
+        <Col xs={12}>
           <AlbumFeature user={user} vertical={false} />
         </Col>
-        <Col xs={4}>
+        {/* <Col xs={4}>
           <AlbumFeature user={user} vertical={true} />
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );
