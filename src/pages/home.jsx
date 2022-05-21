@@ -1,6 +1,9 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import AlbumFeature from '../features/Albums';
+import PostListFeature from '../features/Posts/PostList';
+import PostComponent from '../features/Posts/PostList/components/PostComponent';
+
 import './styles.scss';
 HomePage.propTypes = {};
 
@@ -11,8 +14,11 @@ function HomePage({ user }) {
         {/* <Col xs={12}>
           <AlbumFeature user={user} vertical={false} />
         </Col> */}
-        <Col xs={12}>
-          <AlbumFeature user={user} vertical={true} />
+        <Col>
+          <AlbumFeature user={user} vertical={false} />
+        </Col>
+        <Col>
+          <PostListFeature />
         </Col>
       </Row>
     </div>

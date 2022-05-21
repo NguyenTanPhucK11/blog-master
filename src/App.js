@@ -18,11 +18,11 @@ function App() {
   }, [user]);
   return (
     <div className="App">
-      <LayoutPage user={user} />
+      {/* <LayoutPage user={user} /> */}
       <PostIdContext.Provider value={{ id, setId }}>
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<HomePage user={user}/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>

@@ -18,7 +18,7 @@ function Photo({ user, clickPhoto, idImg, width, height }) {
 
   return (
     <Image
-      src={initPhoto[idImg].url}
+      src={initPhoto[idImg - 1].url}
       onClick={() => handleOnClickImg(idImg)}
       width={width}
       height={height}

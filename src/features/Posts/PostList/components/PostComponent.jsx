@@ -5,10 +5,11 @@ import Photo from '../../../Photos/components';
 
 import { ArrowRightAlt } from '@material-ui/icons';
 import './styles.scss';
-AlbumCategory.propTypes = {};
+PostComponent.propTypes = {};
 
-function AlbumCategory({ user, id, title }) {
+function PostComponent({ user, id, title }) {
   const imgUrl = 'https://via.placeholder.com/150/d32776';
+
   return (
     <Container className="album-category">
       <Row className="d-flex justify-content-center align-items-center">
@@ -58,4 +59,4 @@ function AlbumCategory({ user, id, title }) {
   );
 }
 
-export default AlbumCategory;
+export default PostComponent;
