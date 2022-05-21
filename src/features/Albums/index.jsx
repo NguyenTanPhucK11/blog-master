@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Album from './components';
 import './styles.scss';
 import { TabScrollButton } from '@mui/material';
+import AlbumCategory from './components/AlbumCategory';
 
 AlbumFeature.propTypes = {};
 
@@ -30,7 +31,8 @@ function AlbumFeature({ user, vertical }) {
       <h2>CATEGORY </h2>
       <ul className={vertical ? 'vertical ' : 'horizontal'}>
         {albumCategory.map((album) => (
-          <Album user={user} key={'album-' + album.id} {...album} />
+          <AlbumCategory user={user} key={'album-' + album.id} {...album} />
+          // <Album user={user} key={'album-' + album.id} {...album} />
         ))}
       </ul>
     </>

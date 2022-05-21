@@ -8,12 +8,12 @@ function HomePage({ user }) {
   return (
     <div className="blog">
       <Row className="d-flex justify-content-center">
-        <Col xs={12}>
+        {/* <Col xs={12}>
           <AlbumFeature user={user} vertical={false} />
-        </Col>
-        {/* <Col xs={4}>
-          <AlbumFeature user={user} vertical={true} />
         </Col> */}
+        <Col xs={12}>
+          <AlbumFeature user={user} vertical={true} />
+        </Col>
       </Row>
     </div>
   );
