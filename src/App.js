@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import DetailPage from './pages/detail';
 import HomePage from './pages/home';
+import LayoutPage from './pages/layout';
 import LoginPage from './pages/login';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <div className="App">
+      <LayoutPage />
       <PostIdContext.Provider value={{ id, setId }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
