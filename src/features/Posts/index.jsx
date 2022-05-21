@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Post from './components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPostList } from '../../reducers/postSlice';
 import { PostIdContext } from '../../App';
 import './styles.scss';
 
@@ -12,21 +13,23 @@ function PostFeature() {
   const { id, setId } = useContext(PostIdContext);
   const [postList, setPostList] = useState(initPostList);
   const limit = parseInt((id - 1) / 10 + 1);
-
   useEffect(() => {
     async function fetchPostList() {
       const requestUrl =
         'https://jsonplaceholder.typicode.com/users/' + limit + '/posts';
       const response = await fetch(requestUrl);
       const responseJSON = await response.json(response);
-      setPostList(responseJSON);
+      const newPostList = [...postList, ...responseJSON];
+
+      if (postList.find((post) => post.id == id) === undefined)
+        setPostList(newPostList);
     }
     fetchPostList();
-  }, [id]);
+  }, [postList.find((post) => post.id == id) === undefined]);
 
   return (
     <div className="post">
-      <Post {...postList[parseInt(id - (limit - 1) * 10) - 1]} />
+      <Post {...postList.find((post) => post.id === id)} />
     </div>
   );
 }

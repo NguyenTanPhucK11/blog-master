@@ -1,20 +1,26 @@
-import { useState, createContext } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { auth } from './firebase/firebase-config';
 import './App.css';
 import DetailPage from './pages/detail';
 import HomePage from './pages/home';
 import LayoutPage from './pages/layout';
 import LoginPage from './pages/login';
-
 function App() {
   const [id, setId] = useState(0);
-
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, [user]);
   return (
     <div className="App">
-      <LayoutPage />
+      <LayoutPage user={user} />
       <PostIdContext.Provider value={{ id, setId }}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage user={user} />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/detail" element={<DetailPage />} />

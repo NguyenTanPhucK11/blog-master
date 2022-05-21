@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 LayoutPage.propTypes = {};
 
-function LayoutPage(props) {
+function LayoutPage({ user }) {
   return (
     <div>
       <Navbar bg="light" variant="light">
@@ -20,7 +20,7 @@ function LayoutPage(props) {
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <a href="login">Login</a>
+              <a href="login">{user?.email}</a>
             </Navbar.Text>
           </Navbar.Collapse>
         </Container>

@@ -6,6 +6,7 @@ import Photo from '../../Photos/components';
 Post.propTypes = {};
 
 function Post({ id, body, title }) {
+  id = id ?? 1;
   return (
     <div>
       <Container className="post">

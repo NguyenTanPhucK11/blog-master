@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import './styles.scss';
 import AlbumFeature from '../features/Albums';
-import PostFeature from '../features/Posts';
-import CommentFeature from '../features/Comments';
-import { auth } from '../firebase/firebase-config';
-import { onAuthStateChanged } from 'firebase/auth';
+import './styles.scss';
 HomePage.propTypes = {};
 
-function HomePage() {
-  const [user, setUser] = useState({});
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-  }, [user]);
+function HomePage({user}) {
+
   return (
     <div className="blog">
       <Row>
