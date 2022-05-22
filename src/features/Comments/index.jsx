@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
+import PostIdContext from '../../App';
 import Comment from './components';
 
 CommentFeature.propTypes = {};
 
-function CommentFeature({ id }) {
+function CommentFeature({id}) {
   const initComment = useSelector((state) => state.comment);
   const [commentList, setCommentList] = useState(initComment);
-  id = id == 0 ? 1 : id;
+  // id = id == 0 ? 1 : id;
   useEffect(() => {
     async function fetchCommentList() {
       const requestUrl =

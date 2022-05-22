@@ -29,12 +29,14 @@ function AlbumFeature({ user, vertical }) {
 
   return (
     <>
-      <h2>CATEGORY </h2>
-      <ul className={vertical ? 'vertical ' : 'horizontal'}>
-        {albumCategory.map((album) => (
-          <Album user={user} key={'album-' + album.id} {...album} />
-        ))}
-      </ul>
+      <div className="horizontal">
+        <h2>CATEGORY </h2>
+        <ul>
+          {albumCategory.map((album) => (
+            <Album user={user} key={'album-' + album.id} {...album} />
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

@@ -6,12 +6,14 @@
 }
 
 .horizontal {
-  margin-left: 50px;
-  width: 1250px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  margin: auto;
+  width: 1260px;
 
-  padding: 32px;
-  overflow: auto;
+  & > ul {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 32px;
+    overflow: auto;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PostIdContext } from '../../App';
+import CommentFeature from '../Comments';
 import Post from './components';
 import './styles.scss';
 
@@ -8,7 +9,7 @@ PostFeature.propTypes = {};
 
 function PostFeature() {
   const initPostList = useSelector((state) => state.post);
-  const { id, setId } = useContext(PostIdContext);
+  const { id } = useContext(PostIdContext);
   const [postList, setPostList] = useState(initPostList);
   const limit = parseInt((id - 1) / 10 + 1);
   useEffect(() => {
@@ -28,6 +29,7 @@ function PostFeature() {
   return (
     <div className="post">
       <Post {...postList.find((post) => post.id === id)} />
+      <CommentFeature id={id} />
     </div>
   );
 }

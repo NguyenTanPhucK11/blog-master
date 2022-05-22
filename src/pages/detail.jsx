@@ -13,6 +13,7 @@ function DetailPage() {
   onAuthStateChanged(auth, (currentUser) => {
     currentUser !== null && setUser(currentUser);
   });
+
   const logout = async () => {
     await signOut(auth);
   };
@@ -29,7 +30,6 @@ function DetailPage() {
         </Col>
       </Row>
       <PostFeature />
-      <CommentFeature />
     </div>
   );
 }
