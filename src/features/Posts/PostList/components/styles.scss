@@ -32,17 +32,29 @@
   display: inline-block;
   display: flex;
   justify-content: center;
+
+  & > li {
+    padding: 4px;
+    // width: 50px !important;
+    // height: 50px !important;
+  }
+
   a {
     color: black;
     float: left;
-    padding: 8px 16px;
+    // padding: 16px;
+    font-weight: 800;
     text-decoration: none;
   }
   a.active {
-    background-color: lightskyblue;
+    background-color: black;
     color: white;
   }
   a:hover:not(.active) {
     background-color: #ddd;
   }
+}
+
+.page-item {
+  padding: 0px;
 }
