@@ -2,12 +2,12 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: 16px;
 }
 
 .horizontal {
   margin: auto;
-  width: 1260px;
+  width: 60%;
 
   & > ul {
     display: flex;
@@ -16,4 +16,15 @@
     padding: 32px;
     overflow: auto;
   }
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: lightgray !important;
+}
+
+.slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 12px !important;
+  line-height: 20px;
 }

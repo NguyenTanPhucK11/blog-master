@@ -8,6 +8,8 @@ import HomePage from './pages/home';
 import LayoutPage from './pages/layout';
 import LoginPage from './pages/login';
 import Footer from './pages/footer';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 function App() {
   const [id, setId] = useState(0);
   const [user, setUser] = useState({});
@@ -18,16 +20,16 @@ function App() {
   }, [user]);
   return (
     <div className="App">
-      <LayoutPage user={user} />
+      {/* <LayoutPage user={user} /> */}
       <PostIdContext.Provider value={{ id, setId }}>
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/home" element={<HomePage user={user}/>} />
+          <Route path="/home" element={<HomePage user={user} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
       </PostIdContext.Provider>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

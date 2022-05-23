@@ -8,6 +8,7 @@ import './styles.scss';
 HomePage.propTypes = {};
 
 function HomePage({ user }) {
+ 
   return (
     <div className="blog">
       <Row className="d-flex justify-content-center">
@@ -17,9 +18,7 @@ function HomePage({ user }) {
         <Col xs={12}>
           <AlbumFeature user={user} vertical={false} />
         </Col>
-        <Col>
-          <PostListFeature />
-        </Col>
+        <Col>{/* <PostListFeature /> */}</Col>
       </Row>
     </div>
   );

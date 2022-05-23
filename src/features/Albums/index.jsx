@@ -5,7 +5,7 @@ import './styles.scss';
 import { TabScrollButton } from '@mui/material';
 import AlbumCategory from '../Posts/PostList/components/PostComponent';
 import PostList from '../Posts/PostList/components/PostComponent';
-
+import Slider from 'react-slick';
 AlbumFeature.propTypes = {};
 
 function AlbumFeature({ user, vertical }) {
@@ -23,22 +23,37 @@ function AlbumFeature({ user, vertical }) {
     fetchAlbumList();
   }, []);
 
-  const albumCategory = albumList.filter((album) =>
-    vertical ? album.userId == 1 : album.userId == 2
-  );
+  const albumCategory = albumList.filter((album) => album.id < 5);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    // autoplay: true,
+
+    // autoplaySpeed: 5000,
+    // cssEase: 'linear',
+  };
   return (
     <>
       <div className="horizontal">
         <h2>CATEGORY </h2>
-        <ul>
+        <Slider {...settings}>
           {albumCategory.map((album) => (
             <Album user={user} key={'album-' + album.id} {...album} />
           ))}
-        </ul>
+        </Slider>
       </div>
     </>
   );
 }
+
+// function ChangeArrow(props) {
+//   const { className, style, onClick } = props;
+//   return <div className={className} style={{ ...style }} onClick={onClick} />;
+// }
 
 export default AlbumFeature;
