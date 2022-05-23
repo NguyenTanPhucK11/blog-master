@@ -14,7 +14,9 @@ function HomePage({ user }) {
         {/* <Col xs={12}>
           <AlbumFeature user={user} vertical={false} />
         </Col> */}
-        <Col xs={12}>{/* <AlbumFeature user={user} vertical={false} /> */}</Col>
+        <Col xs={12}>
+          <AlbumFeature user={user} vertical={false} />
+        </Col>
         <Col>
           <PostListFeature />
         </Col>

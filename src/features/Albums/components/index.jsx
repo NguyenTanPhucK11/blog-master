@@ -17,14 +17,8 @@ function Album({ user, id, title }) {
           </Col>
         </Col>
 
-        <Col>
-          <Photo
-            user={user}
-            clickPhoto={true}
-            idImg={id}
-            width={365}
-            height={600}
-          />
+        <Col className="album-vertical__album">
+          <Photo user={user} clickPhoto={true} idImg={id} />
         </Col>
       </Col>
     </Container>

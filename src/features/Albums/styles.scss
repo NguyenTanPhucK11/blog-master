@@ -7,7 +7,8 @@
 
 .horizontal {
   margin: auto;
-  width: 1200px;
+  padding: 32px;
+  width: 80%;
 
   & > ul {
     display: flex;
@@ -16,6 +17,8 @@
     padding: 32px;
     overflow: auto;
   }
+
+  
 }
 
 .slick-prev:before,
@@ -27,4 +30,9 @@
   font-family: 'slick';
   font-size: 12px !important;
   line-height: 20px;
+}
+
+@media only screen and (max-width: 576px) {
+  .img {
+  }
 }
