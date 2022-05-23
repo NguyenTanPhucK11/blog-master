@@ -16,7 +16,7 @@ function Post({ id, body, title }) {
           <Photo clickPhoto={false} idImg={id} width={800} height={400} />
           <h2 className="post__title">{title}</h2>
           <Row className="album-category__user d-flex justify-content-center">
-            <Col xs={5}>
+            <Col xs={3} md={4} xl={5}>
               <Image src={imgUrl} roundedCircle></Image>
             </Col>
             <Col className="justify-content-start">

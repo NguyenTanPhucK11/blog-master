@@ -48,7 +48,7 @@ function LoginPage(props) {
   return (
     <div className="login">
       <Col className="d-flex justify-content-center">
-        <Form>
+        <Form style={{ width: '250px' }}>
           <Form.Group>
             <InputGroup className="mb-3">
               <InputGroup.Text>
