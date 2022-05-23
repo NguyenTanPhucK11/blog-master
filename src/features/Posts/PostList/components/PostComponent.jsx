@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import Photo from '../../../Photos/components';
 import { useNavigate } from 'react-router-dom';
 import { PostIdContext } from '../../../../App';
+import React, { useContext, useState, useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../../firebase/firebase-config';
 
 import { ArrowRightAlt } from '@material-ui/icons';
 import './styles.scss';
@@ -12,11 +14,18 @@ PostComponent.propTypes = {};
 function PostComponent({ idImg, title }) {
   const imgUrl = 'https://via.placeholder.com/150/d32776';
 
-  // const navigate = useNavigate();
-  // const handleOnClickImg = (id) => {
-  //   if (user?.email !== undefined) navigate('/detail/' + id);
-  //   else navigate('/login');
-  // };
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, [user]);
+  const handleOnClickImg = (id) => {
+    if (user?.email !== undefined) navigate('/detail/' + id);
+    else navigate('/login');
+  };
+
   return (
     <Container className="album-category">
       <Row className="d-flex justify-content-center align-items-center">
@@ -41,9 +50,9 @@ function PostComponent({ idImg, title }) {
             iusto dolores!
           </div>
           <div className="album-category__continue">
-            {/* <a href="" onClick={(e) => handleOnClickImg(e)}>
+            <a href="" onClick={() => handleOnClickImg(idImg)}>
               Continue Reading<ArrowRightAlt></ArrowRightAlt>
-            </a> */}
+            </a>
           </div>
         </Col>
         {idImg % 2 == 0 && (

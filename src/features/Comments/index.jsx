@@ -24,11 +24,15 @@ function CommentFeature({ idPost }) {
   }, [idPost]);
 
   return (
-    <ul className="post-comment">
-      {commentList.map((comment) => (
-        <Comment key={'comment-' + comment.id} {...comment} />
-      ))}
-    </ul>
+    <>
+      <h3 className ="number-comment">{commentList.length} Comments</h3>
+
+      <ul className="post-comment">
+        {commentList.map((comment) => (
+          <Comment key={'comment-' + comment.id} {...comment} />
+        ))}
+      </ul>
+    </>
   );
 }
 

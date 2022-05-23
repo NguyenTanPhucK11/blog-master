@@ -1,10 +1,46 @@
 .post {
+  &__body {
+    // margin: 32px !important;
+    padding: 64px !important;
+    text-align: start !important;
+  }
 
   &__title {
     font-weight: 800;
+    font-size: 36px;
     line-height: 1.4;
     color: #191b1d;
+    display: inline;
+    float: left;
     margin: 0;
     word-wrap: break-word;
+  }
+
+  &__subtitle {
+    font-weight: 800;
+    padding: 16px 0 16px 0;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #191b1d;
+    display: inline;
+    float: left;
+    margin: 0;
+    word-wrap: break-word;
+  }
+  &__user {
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user > div > img {
+    width: 50px;
+    height: 50px;
+    float: right;
+  }
+
+  &__user > div > div {
+    float: left;
   }
 }

@@ -9,32 +9,97 @@ Post.propTypes = {};
 
 function Post({ body, title }) {
   const { idPost } = useParams();
-  console.log(idPost);
-  const imgUrl = 'https://via.placeholder.com/150/d32776';
   const initPhoto = useSelector((state) => state.photo);
+  const imgUrl = initPhoto[(idPost ?? 1) - 1].url;
   return (
     <div>
       <Container className="post">
-        <Row className="d-flex justify-content-center">
-          <Image
-            src={initPhoto[(idPost ?? 1) - 1].url}
-            width={800}
-            height={400}
-          />
-          <h2 className="post__title">{title}</h2>
-          <Row className="album-category__user d-flex justify-content-center">
-            <Col xs={3} md={4} xl={5}>
-              <Image src={imgUrl} roundedCircle></Image>
-            </Col>
-            <Col className="justify-content-start">
-              <div>Meriam Smith Interior February 10, 2022</div>
-            </Col>
-          </Row>
-          <h4>{body}</h4>
+        <Row className="d-flex justify-content-center align-items-start">
+          <Image src={imgUrl} width={800} height={400} />
+          <Container className="post__body">
+            <Row>
+              <Col sm={12} className="align-self-start">
+                <div className="post__title">{title}</div>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <Row className="post__user">
+                  <Col sm={1}>
+                    <Image src={imgUrl} roundedCircle></Image>
+                  </Col>
+                  <Col className="justify-content-start">
+                    <div>Meriam Smith Interior February 10, 2022</div>
+                  </Col>
+                </Row>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <p>{body}</p>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <div className="post__subtitle">
+                  Simplicity is the ultimate sophistication
+                </div>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <p>
+                  Oh acceptance apartments up sympathize astonished delightful.
+                  Waiting him new lasting towards. Continuing melancholy
+                  especially so to. Me unpleasing impossible in attachment
+                  announcing so astonished. What ask leaf may nor upon door.
+                  Tended remain my do stairs. Oh smiling amiable am so visited
+                  cordial in offices hearted.
+                </p>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <p>
+                  Oh acceptance apartments up sympathize astonished delightful.
+                  Waiting him new lasting towards. Continuing melancholy
+                  especially so to. Me unpleasing impossible in attachment
+                  announcing so astonished. What ask leaf may nor upon door.
+                  Tended remain my do stairs. Oh smiling amiable am so visited
+                  cordial in offices hearted. Oh acceptance apartments up
+                  sympathize astonished delightful. Waiting him new lasting
+                  towards. Continuing melancholy especially so to. Me unpleasing
+                  impossible in attachment announcing so astonished. What ask
+                  leaf may nor upon door. Tended remain my do stairs. Oh smiling
+                  amiable am so visited cordial in offices hearted. Waiting him
+                  new lasting towards. Continuing melancholy especially so to.
+                  Me unpleasing impossible in attachment announcing so
+                  astonished. What ask leaf may nor upon door. Tended remain my
+                  do stairs. Quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                  nulla pariatur. Excepteur sint occaecat cupidatat non
+                  proident, sunt in culpa qui officia deserunt mollit anim id
+                  est laborum.
+                </p>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <div className="post__subtitle">
+                  Simplicity is the ultimate sophistication
+                </div>
+              </Col>
+              <Col sm={12} className="align-self-start">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident. Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                  ea commodo consequat. Duis aute irure dolor in reprehenderit
+                  in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur. Excepteur sint occaecat cupidatat non proident.
+                </p>
+              </Col>
+            </Row>
+          </Container>
         </Row>
       </Container>
     </div>
   );
 }
-
 export default Post;
