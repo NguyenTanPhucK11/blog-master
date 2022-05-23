@@ -47,7 +47,7 @@ function LoginPage(props) {
   };
   return (
     <div className="login">
-      <Col xs={2}>
+      <Col className="d-flex justify-content-center">
         <Form>
           <Form.Group>
             <InputGroup className="mb-3">
