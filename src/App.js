@@ -27,6 +27,7 @@ function App() {
           <Route path="/home" element={<HomePage user={user} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/detail" element={<DetailPage />} />
+          <Route path="/detail/:idPost" element={<DetailPage />} />
         </Routes>
       </PostIdContext.Provider>
       <Footer />

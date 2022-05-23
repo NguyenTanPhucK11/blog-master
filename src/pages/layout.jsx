@@ -15,7 +15,7 @@ function LayoutPage({ user }) {
     <div>
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>
         <Container fluid>
-          <Navbar.Brand href="home">BLOG</Navbar.Brand>
+          <Navbar.Brand href="/home">BLOG</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className="justify-content-end">
             <Nav
@@ -24,11 +24,11 @@ function LayoutPage({ user }) {
               style={{ maxHeight: '200px', float: 'left' }}
               navbarScroll
             >
-              <Nav.Link href="home">Home</Nav.Link>
-              <Nav.Link href="pages">Pages</Nav.Link>
-              <Nav.Link href="blog">Blog</Nav.Link>
-              <Nav.Link href="features">Features</Nav.Link>
-              <Nav.Link href="contact">Contact</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/pages">Pages</Nav.Link>
+              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link href="/features">Features</Nav.Link>
+              <Nav.Link href="/contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

@@ -9,22 +9,20 @@ import { ArrowRightAlt } from '@material-ui/icons';
 import './styles.scss';
 PostComponent.propTypes = {};
 
-function PostComponent({ user, idImg, title }) {
+function PostComponent({ idImg, title }) {
   const imgUrl = 'https://via.placeholder.com/150/d32776';
-  const { id, setId } = useContext(PostIdContext);
-  const navigate = useNavigate();
-  const handleOnClickImg = (e) => {
-    e.preventDefault();
-    setId(idImg);
-    if (user?.email !== undefined) navigate('/detail');
-    else navigate('/login');
-  };
+
+  // const navigate = useNavigate();
+  // const handleOnClickImg = (id) => {
+  //   if (user?.email !== undefined) navigate('/detail/' + id);
+  //   else navigate('/login');
+  // };
   return (
     <Container className="album-category">
       <Row className="d-flex justify-content-center align-items-center">
         {idImg % 2 != 0 && (
-          <Col lg={6} sm={12} className="album-category__show" >
-            <Photo user={user} clickPhoto={true} idImg={idImg} />
+          <Col lg={6} sm={12} className="album-category__show">
+            <Photo idImg={idImg} />
           </Col>
         )}
         <Col lg={6} sm={12}>
@@ -43,18 +41,18 @@ function PostComponent({ user, idImg, title }) {
             iusto dolores!
           </div>
           <div className="album-category__continue">
-            <a href="" onClick={(e) => handleOnClickImg(e)}>
+            {/* <a href="" onClick={(e) => handleOnClickImg(e)}>
               Continue Reading<ArrowRightAlt></ArrowRightAlt>
-            </a>
+            </a> */}
           </div>
         </Col>
         {idImg % 2 == 0 && (
           <Col lg={6} sm={12} className="album-category__show">
-            <Photo user={user} clickPhoto={true} idImg={idImg} />
+            <Photo idImg={idImg} />
           </Col>
         )}
         <Col lg={6} sm={12} className="album-category__hide">
-          <Photo user={user} clickPhoto={true} idImg={idImg} />
+          <Photo idImg={idImg} />
         </Col>
       </Row>
     </Container>

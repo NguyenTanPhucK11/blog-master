@@ -1,19 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Image } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Route, Link, Router } from 'react-router-dom';
 import { PostIdContext } from '../../../App';
+import DetailPage from '../../../pages/detail';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../firebase/firebase-config';
+
 import './styles.scss';
 Photo.propTypes = {};
 
-function Photo({ user, clickPhoto, idImg, width, height }) {
+function Photo({ idImg, width, height }) {
   const initPhoto = useSelector((state) => state.photo);
-  const { id, setId } = useContext(PostIdContext);
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, [user]);
   const handleOnClickImg = (id) => {
-    setId(id);
-    if (!clickPhoto) return;
-    else if (user?.email !== undefined) navigate('/detail');
+    if (user?.email !== undefined) navigate('/detail/' + id);
     else navigate('/login');
   };
 

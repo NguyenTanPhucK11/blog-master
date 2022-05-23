@@ -4,7 +4,7 @@ import Photo from '../../Photos/components';
 import './styles.scss';
 Album.propTypes = {};
 
-function Album({ user, id, title }) {
+function Album({ id, title }) {
   return (
     <Container className="album-vertical">
       <Col className="d-flex justify-content-center align-items-end">
@@ -18,7 +18,7 @@ function Album({ user, id, title }) {
         </Col>
 
         <Col className="album-vertical__album">
-          <Photo user={user} clickPhoto={true} idImg={id} />
+          <Photo idImg={id} />
         </Col>
       </Col>
     </Container>

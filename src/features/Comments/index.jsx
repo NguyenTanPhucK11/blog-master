@@ -6,21 +6,22 @@ import './styles.scss';
 
 CommentFeature.propTypes = {};
 
-function CommentFeature({ id }) {
+function CommentFeature({ idPost }) {
   const initComment = useSelector((state) => state.comment);
   const [commentList, setCommentList] = useState(initComment);
   // id = id == 0 ? 1 : id;
+
   useEffect(() => {
     async function fetchCommentList() {
       const requestUrl =
-        'https://jsonplaceholder.typicode.com/posts/' + id + '/comments';
+        'https://jsonplaceholder.typicode.com/posts/' + idPost + '/comments';
       const response = await fetch(requestUrl);
       const responseJSON = await response.json(response);
       setCommentList(responseJSON);
     }
 
     fetchCommentList();
-  }, [id]);
+  }, [idPost]);
 
   return (
     <ul className="post-comment">

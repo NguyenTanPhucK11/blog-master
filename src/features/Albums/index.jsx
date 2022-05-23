@@ -8,7 +8,7 @@ import PostList from '../Posts/PostList/components/PostComponent';
 import Slider from 'react-slick';
 AlbumFeature.propTypes = {};
 
-function AlbumFeature({ user, vertical }) {
+function AlbumFeature({ vertical }) {
   const initAlbumList = useSelector((state) => state.album);
   const [albumList, setAlbumList] = useState(initAlbumList);
 
@@ -58,7 +58,7 @@ function AlbumFeature({ user, vertical }) {
         <h2>CATEGORY </h2>
         <Slider {...settings}>
           {albumCategory.map((album) => (
-            <Album user={user} key={'album-' + album.id} {...album} />
+            <Album key={'album-' + album.id} {...album} />
           ))}
         </Slider>
       </div>
