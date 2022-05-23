@@ -20,7 +20,7 @@ function App() {
   }, [user]);
   return (
     <div className="App">
-      {/* <LayoutPage user={user} /> */}
+      <LayoutPage user={user} />
       <PostIdContext.Provider value={{ id, setId }}>
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
@@ -29,7 +29,7 @@ function App() {
           <Route path="/detail" element={<DetailPage />} />
         </Routes>
       </PostIdContext.Provider>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

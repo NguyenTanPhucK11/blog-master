@@ -81,7 +81,6 @@ export const postSlice = createSlice({
     addPostList: (state, action) => {
       const newPost = [...state];
       newPost.push(action.payload);
-      console.log(action.payload);
       return newPost;
     },
   },

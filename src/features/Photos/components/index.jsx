@@ -3,10 +3,10 @@ import { Image } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { PostIdContext } from '../../../App';
+import './styles.scss';
 Photo.propTypes = {};
 
 function Photo({ user, clickPhoto, idImg, width, height }) {
-  console.log(idImg);
   const initPhoto = useSelector((state) => state.photo);
   const { id, setId } = useContext(PostIdContext);
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function Photo({ user, clickPhoto, idImg, width, height }) {
 
   return (
     <Image
+      className="img"
       src={initPhoto[idImg - 1].url}
       onClick={() => handleOnClickImg(idImg)}
       width={width}

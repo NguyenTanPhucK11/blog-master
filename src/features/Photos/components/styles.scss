@@ -1,0 +1,37 @@
+@media only screen and (min-width: 1400px) {
+  .img {
+    width: 635px;
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .img {
+    width: 545px;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .img {
+    width: 455px;
+    height: 470px;
+  }
+}
+
+// @media only screen and (max-width: 992px) {
+//   .img {
+//     width: ;
+//     height: ;
+//   }
+// }
+// @media only screen and (max-width: 768px) {
+//   .img {
+//     width: 400px;
+//     height: 400px;
+//   }
+// }
+@media only screen and (max-width: 576px) {
+  .img {
+    width: 250px;
+    height: 250px;
+  }
+}

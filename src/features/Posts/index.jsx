@@ -27,7 +27,7 @@ function PostFeature() {
   }, [postList.find((post) => post.id == id) === undefined]);
 
   return (
-    <div className="post">
+    <div className="post-list">
       <Post {...postList.find((post) => post.id === id)} />
       <CommentFeature id={id} />
     </div>

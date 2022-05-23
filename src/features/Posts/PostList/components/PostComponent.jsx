@@ -23,24 +23,18 @@ function PostComponent({ user, idImg, title }) {
     <Container className="album-category">
       <Row className="d-flex justify-content-center align-items-center">
         {idImg % 2 != 0 && (
-          <Col>
-            <Photo
-              user={user}
-              clickPhoto={true}
-              idImg={idImg}
-              width={635}
-              height={475}
-            />
+          <Col lg={6} sm={12} className="album-category__show" >
+            <Photo user={user} clickPhoto={true} idImg={idImg} />
           </Col>
         )}
-        <Col>
+        <Col lg={6} sm={12}>
           <div className="album-category__title">{title}</div>
           <Row className="album-category__user">
             <Col xs={3}>
               <Image src={imgUrl} roundedCircle></Image>
             </Col>
             <Col className="justify-content-start">
-              <div>Meriam Smith Interior February 10 ,2022</div>
+              <div>Meriam Smith Interior February 10, 2022</div>
             </Col>
           </Row>
           <div>
@@ -55,16 +49,13 @@ function PostComponent({ user, idImg, title }) {
           </div>
         </Col>
         {idImg % 2 == 0 && (
-          <Col>
-            <Photo
-              user={user}
-              clickPhoto={true}
-              idImg={idImg}
-              width={635}
-              height={475}
-            />
+          <Col lg={6} sm={12} className="album-category__show">
+            <Photo user={user} clickPhoto={true} idImg={idImg} />
           </Col>
         )}
+        <Col lg={6} sm={12} className="album-category__hide">
+          <Photo user={user} clickPhoto={true} idImg={idImg} />
+        </Col>
       </Row>
     </Container>
   );
