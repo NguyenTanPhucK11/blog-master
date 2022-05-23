@@ -6,6 +6,7 @@ import { PostIdContext } from '../../../App';
 Photo.propTypes = {};
 
 function Photo({ user, clickPhoto, idImg, width, height }) {
+  console.log(idImg);
   const initPhoto = useSelector((state) => state.photo);
   const { id, setId } = useContext(PostIdContext);
   const navigate = useNavigate();

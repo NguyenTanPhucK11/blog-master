@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Container, Row, Image } from 'react-bootstrap';
 import Photo from '../../../Photos/components';
+import { useNavigate } from 'react-router-dom';
+import { PostIdContext } from '../../../../App';
 
 import { ArrowRightAlt } from '@material-ui/icons';
 import './styles.scss';
 PostComponent.propTypes = {};
 
-function PostComponent({ user, id, title }) {
+function PostComponent({ user, idImg, title }) {
   const imgUrl = 'https://via.placeholder.com/150/d32776';
-
+  const { id, setId } = useContext(PostIdContext);
+  const navigate = useNavigate();
+  const handleOnClickImg = (e) => {
+    e.preventDefault();
+    setId(idImg);
+    if (user?.email !== undefined) navigate('/detail');
+    else navigate('/login');
+  };
   return (
     <Container className="album-category">
       <Row className="d-flex justify-content-center align-items-center">
-        {id % 2 != 0 && (
+        {idImg % 2 != 0 && (
           <Col>
             <Photo
               user={user}
               clickPhoto={true}
-              idImg={id}
+              idImg={idImg}
               width={635}
               height={475}
             />
@@ -40,15 +49,17 @@ function PostComponent({ user, id, title }) {
             iusto dolores!
           </div>
           <div className="album-category__continue">
-            Continue Reading<ArrowRightAlt></ArrowRightAlt>
+            <a href="" onClick={(e) => handleOnClickImg(e)}>
+              Continue Reading<ArrowRightAlt></ArrowRightAlt>
+            </a>
           </div>
         </Col>
-        {id % 2 == 0 && (
+        {idImg % 2 == 0 && (
           <Col>
             <Photo
               user={user}
               clickPhoto={true}
-              idImg={id}
+              idImg={idImg}
               width={635}
               height={475}
             />

@@ -12,7 +12,7 @@ function Posts({ posts, loading }) {
   return (
     <ul>
       {posts.map((post) => (
-        <PostComponent key={post.id} {...post} />
+        <PostComponent key={post.id} {...post} idImg={post.id} />
       ))}
     </ul>
   );
