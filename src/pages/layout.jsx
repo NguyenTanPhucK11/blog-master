@@ -11,6 +11,7 @@ function LayoutPage({ user }) {
   const logout = async () => {
     await signOut(auth);
   };
+  console.log(user?.email);
   return (
     <div>
       <Navbar bg="light" variant="light" expand="lg" collapseOnSelect>

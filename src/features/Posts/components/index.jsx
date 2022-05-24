@@ -1,15 +1,25 @@
-import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Photo from '../../Photos/components';
+import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../firebase/firebase-config';
+
 import './styles.scss';
 
 Post.propTypes = {};
 
 function Post({ body, title }) {
   const { idPost } = useParams();
+  const navigate = useNavigate();
   const initPhoto = useSelector((state) => state.photo);
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser?.email === undefined) navigate('/login');
+    });
+  }, []);
   const imgUrl = initPhoto[(idPost ?? 1) - 1].url;
   return (
     <div>

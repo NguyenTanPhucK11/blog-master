@@ -21,6 +21,7 @@ function PostComponent({ idImg, title }) {
       setUser(currentUser);
     });
   }, [user]);
+
   const handleOnClickImg = (id) => {
     if (user?.email !== undefined) navigate('/detail/' + id);
     else navigate('/login');

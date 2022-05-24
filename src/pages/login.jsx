@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Col, Row, InputGroup } from 'react-bootstrap';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { auth } from '../firebase/firebase-config';
 import {
   createUserWithEmailAndPassword,
@@ -13,7 +13,7 @@ import { Person, Lock } from '@material-ui/icons';
 
 LoginPage.propTypes = {};
 
-function LoginPage(props) {
+function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [userId, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
